@@ -13,6 +13,8 @@ const foreCast = (lng, lat, callback) => {
         weather_description: response.body.current.weather_descriptions[0],
         temperate: response.body.current.temperature,
         precip: response.body.current.precip,
+        humidity: response.body.current.humidity,
+        feelslike: response.body.current.feelslike,
       });
     }
   });

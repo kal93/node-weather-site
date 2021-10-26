@@ -27,13 +27,19 @@ const searchWeatherByLocation = (location, callback) => {
     response.json().then((data) => {
       if (data.error) {
         console.log("Error...", data.error);
-        message2.textContent = data.error;
-        message1.textContent = "";
+        message2.innerHTML = data.error;
+        message1.innerHTML = "";
       } else {
         console.log("Data", data);
-        message1.textContent = `Current temperature at ${data.location} is ${data.foreCastData.temperate} degres celsius and forecast is 
-          ${data.foreCastData.weather_description} with ${data.foreCastData.precip}% change of rain.`;
-        message2.textContent = "";
+        message1.innerHTML = `Current temperature at ${data.location} is ${
+          data.foreCastData.temperate
+        } ${"o".sup()} C and forecast is 
+          ${data.foreCastData.weather_description} with ${
+          data.foreCastData.precip
+        }% change of rain. Humidity is ${
+          data.foreCastData.humidity
+        } and it feels like ${data.foreCastData.feelslike} ${"o".sup()} C.`;
+        message2.innerHTML = "";
       }
       callback(data);
     });
