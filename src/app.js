@@ -14,6 +14,8 @@ log(path.join(__dirname, "../public"));
 
 // 1.Define Paths for express configs
 const app = express();
+const port = process.env.PORT || 3000;
+
 const pubDirPath = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
 const partialsPath = path.join(__dirname, "../templates/partials");
@@ -122,6 +124,6 @@ app.get("*", (req, res) => {
     notFoundMsg: "Page not found.",
   });
 });
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log(chalk.yellowBright.inverse("Server is up on port 3000"));
 });
